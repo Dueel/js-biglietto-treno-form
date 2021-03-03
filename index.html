@@ -3,30 +3,68 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style media="screen">
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body{
+        background: LightCyan;
+        height: 100vh;
+        font-family: sans-serif;
+        display: flex;
+      }
+
+      .container{
+        background: SpringGreen;
+        margin: auto;
+        width: 800px;
+        padding: 50px;
+      }
+
+    </style>
   </head>
   <body>
+
+    <div class="container">
+      <h1 id="km"></h1>
+      <h1 id="anni"></h1>
+      <h1 id="prezzo"></h1>
+      <h1 id="sconto20"></h1>
+      <h1 id="sconto40"></h1>
+      <h1 id="sconto0"></h1>
+
+    </div>
     <script>
 
       var km = prompt('Quanti km devi percorrere?');
-      var etaUser = prompt('Quanti anni hai?');
-      var prezzoPieno = km * 0.21;
+      var anniUser = prompt('Quanti anni hai?');
+      var prezzoIntero = km * 0.21;
+      var scontoMinori = prezzoIntero * 0.8;
+      var scontoAnziani = prezzoIntero * 0.6;
 
-      var scontoMinori = prezzoPieno * 0.8;
-      var scontoAnziani = prezzoPieno * 0.6;
+      console.log('Km da percorrere:' + km, "Etá dell'utente:" + anniUser, 'Prezzo intero: €' + prezzoIntero);
+      document.getElementById('km').innerHTML = 'Km da percorrere: ' + km;
+      document.getElementById('anni').innerHTML = "Anni dell'utente: " + anniUser;
+      document.getElementById('prezzo').innerHTML = "Prezzo Intero: €" + prezzoIntero;
 
-      console.log('Km da percorrere:' + km, "Etá dell'utente:" + etaUser, 'Prezzo pieno: €' + prezzoPieno);
+      if (anniUser < 18){
+        console.log('Applicato sconto 20%: Totale €' + scontoMinori);
+        document.getElementById('sconto20').innerHTML = 'Applicato sconto 20%: Totale €' + scontoMinori;
 
-      if (etaUser < 18){
-        console.log('Applicato sconto Minorenni: Totale €' + scontoMinori)
-
-      } else if (etaUser > 65){
-        console.log('Applicato sconto Anziani: Totale €' + scontoAnziani)
+      } else if (anniUser > 65){
+        console.log('Applicato sconto 40%: Totale €' + scontoAnziani);
+        document.getElementById('sconto40').innerHTML = 'Applicato sconto 40%: Totale €' + scontoAnziani;
 
       } else{
-        console.log('Nessuno sconto: Totale €' + prezzoPieno)
-
+        console.log('Nessuno sconto: Totale €' + prezzoIntero);
+        document.getElementById('sconto0').innerHTML = 'Non é stato applicato alcun sconto';
       }
 
     </script>
+
   </body>
 </html>
