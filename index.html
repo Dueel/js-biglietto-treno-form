@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+
+      var km = prompt('Quanti km devi percorrere?');
+      var etaUser = prompt('Quanti anni hai?');
+      var prezzoPieno = km * 0.21;
+
+      var scontoMinori = prezzoPieno * 0.8;
+      var scontoAnziani = prezzoPieno * 0.6;
+
+      console.log('Km da percorrere:' + km, "Etá dell'utente:" + etaUser, 'Prezzo pieno: €' + prezzoPieno);
+
+      if (etaUser < 18){
+        console.log('Applicato sconto Minorenni: Totale €' + scontoMinori)
+
+      } else if (etaUser > 65){
+        console.log('Applicato sconto Anziani: Totale €' + scontoAnziani)
+
+      } else{
+        console.log('Nessuno sconto: Totale €' + prezzoPieno)
+
+      }
+
+    </script>
+  </body>
+</html>
